@@ -1,38 +1,99 @@
-.App {
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #ffffff;
+  color: #333;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: center;  /* 가운데 정렬 */
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.greeting {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  color: #4A7BA8;
+  margin: 0;
+}
+
+.lang-toggle {
+  position: absolute;
+  right: 0;
+  top: 22px;
+  background-color: #4A7BA8;
   color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.lang-toggle:hover {
+  background-color: #3a678d;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title {
+  font-family: 'Playfair Display', serif;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.jesus-image {
+  width: 240px;          /* 🔹 기존 300px → 240px 로 줄임 */
+  height: auto;
+  margin: 20px auto;     /* 상하 여백 살짝 줄임 */
+  display: block;
+  border-radius: 10px;
+}
+
+
+.show-word {
+  display: block;
+  margin: 0 auto 15px auto; /* 버튼 중앙 정렬 */
+  background-color: #4A7BA8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.show-word:hover {
+  background-color: #3a678d;
+}
+
+.footer {
+  margin-top: 6px !important;  /* 버튼 바로 아래로 거의 붙임 */
+  margin-bottom: 80px;         /* 하단 광고(70px) 영역과 겹치지 않게 살짝 띄움 */
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer p {
+  margin: 6px 0;             /* 필요시 4px까지 줄일 수 있음 */
+}
+.App {
+  padding-bottom: 80px; /* AdBanner 높이(70px)보다 약간 여유 있게 */
 }
