@@ -1,99 +1,110 @@
+/* ✅ 1. 기본 배경 및 레이아웃 복구 */
 body {
-  margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
-  background-color: #ffffff;
-  color: #333;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #f2f6fc;
+  color: #2c3e50;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .app-container {
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
+  /* 상단이 너무 붙지 않게 여백 충분히 확보 */
+  padding: 60px 20px 100px 20px; 
+  box-sizing: border-box;
 }
 
-.header {
-  display: flex;
-  justify-content: center;  /* 가운데 정렬 */
-  align-items: center;
-  width: 100%;
-  max-width: 700px;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.greeting {
-  flex: 1;
-  text-align: center;
-  font-size: 1rem;
-  color: #4A7BA8;
-  margin: 0;
-}
-
-.lang-toggle {
-  position: absolute;
-  right: 0;
-  top: 22px;
-  background-color: #4A7BA8;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.lang-toggle:hover {
-  background-color: #3a678d;
-}
-
+/* ✅ 2. 폰트 크기 유연화 (모바일에서 안 깨지게) */
 .title {
-  font-family: 'Playfair Display', serif;
-  color: #2c3e50;
-  margin-bottom: 15px;
+  font-size: clamp(32px, 10vw, 48px);
+  font-weight: bold;
+  margin-bottom: 20px;
+  word-break: keep-all;
 }
 
-.jesus-image {
-  width: 240px;          /* 🔹 기존 300px → 240px 로 줄임 */
-  height: auto;
-  margin: 20px auto;     /* 상하 여백 살짝 줄임 */
-  display: block;
-  border-radius: 10px;
+.top-message {
+  font-size: clamp(16px, 4vw, 20px);
+  margin-bottom: 25px;
+  color: #375a7f;
 }
 
-
-.show-word {
-  display: block;
-  margin: 0 auto 15px auto; /* 버튼 중앙 정렬 */
-  background-color: #4A7BA8;
-  color: white;
+/* ✅ 3. 버튼 스타일 원복 (남색 박스 스타일) */
+.translate-button, .fortune-button {
+  background-color: #375a7f !important; /* 원래의 남색 */
+  color: white !important;
   border: none;
-  border-radius: 10px;
-  padding: 12px 24px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s ease;
 }
 
-.show-word:hover {
-  background-color: #3a678d;
+.translate-button {
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-.footer {
-  margin-top: 6px !important;  /* 버튼 바로 아래로 거의 붙임 */
-  margin-bottom: 80px;         /* 하단 광고(70px) 영역과 겹치지 않게 살짝 띄움 */
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.6;
+.fortune-button {
+  border-radius: 10px;
+  padding: 14px 40px;
+  font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
-.footer p {
-  margin: 6px 0;             /* 필요시 4px까지 줄일 수 있음 */
+/* ✅ 4. 카테고리 영역 (자동 줄바꿈 + 점 제거) */
+.fortune-categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* 모바일 대응 핵심 */
+  gap: 10px;
+  margin: 25px 0;
+  width: 100%;
 }
-.App {
-  padding-bottom: 80px; /* AdBanner 높이(70px)보다 약간 여유 있게 */
+
+.fortune-categories span {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 2px solid #d9e2ec;
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.fortune-categories span.active {
+  background-color: #375a7f;
+  color: white;
+  border-color: #375a7f;
+}
+
+.dot-sep { display: none; } /* 모바일 지저분함 방지 */
+
+/* ✅ 5. 하단 광고 영역 복구 및 고정 */
+.ad-placeholder {
+  width: 100%;
+  height: 60px;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ddd;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ✅ 6. 팝업창(모달) 모바일 최적화 */
+.modal-content, .signup-modal {
+  width: 90% !important;
+  max-width: 400px;
+  border-radius: 25px !important;
+  padding: 30px !important;
 }
