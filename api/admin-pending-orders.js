@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       .from('purchase_reward_logs')
       .select('*')
       .eq('status', 'pending')
-      .order('created_at', { ascending: false });
+      .order('rewarded_at', { ascending: false });
 
     if (error) {
       console.error('DB 조회 오류:', error);
